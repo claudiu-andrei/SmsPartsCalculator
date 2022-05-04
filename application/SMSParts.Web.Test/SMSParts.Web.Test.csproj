@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SMSParts\SMSParts.Web.csproj" />
+    <ProjectReference Include="..\SMSParts.Web\SMSParts.Web.csproj" />
   </ItemGroup>
 
 </Project>
