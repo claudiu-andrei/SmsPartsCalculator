@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
 using SMSParts.IntegrationTests.Models;
@@ -31,6 +32,54 @@ namespace SMSParts.IntegrationTests.Tests
 
             // assert
             smsInfoResult.Should().BeEquivalentTo(expectedResult, description);
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task CheckThatExact255PartMessageIsAllowed(
+            bool hasNonStandardCharacters)
+        {
+            // arrange
+            var maxAllowedParts = 255;
+            var messageSize = hasNonStandardCharacters ? 67 : 153;
+            var maxAllowedSize = messageSize * maxAllowedParts;
+
+            var lastCharacter = hasNonStandardCharacters ? 'ń' : 'a';
+
+            var inputText = new string('a', maxAllowedSize - 1) + lastCharacter;
+
+            // act
+            var smsInfoResult = await ApiHelper.GetPartsWithAssertion(inputText);
+
+            // assert
+            smsInfoResult.SmsPartsCount.Should().Be(maxAllowedParts);
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task CheckThatForMoreThan255MessagePartsWeReceiveTheAppropriateError(
+            bool hasNonStandardCharacters)
+        {
+            // arrange
+            var maxAllowedParts = 255;
+
+            var messageSize = hasNonStandardCharacters ? 67 : 153;
+            var maxAllowedSize = messageSize * maxAllowedParts;
+
+            var firstCharacter = hasNonStandardCharacters ? 'ń' : 'a';
+
+            var inputText = firstCharacter  + new string('a', maxAllowedSize);
+
+            // act
+            var smsInfoResult = await ApiHelper
+                .GetPartsErrorWithStatusCodeAssertion(inputText,
+                    HttpStatusCode.InternalServerError);
+
+            // assert
+            smsInfoResult.Error.Content.Should()
+                .Be("Text size extends beyond allowed max 255 sms parts.");
         }
     }
 }

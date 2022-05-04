@@ -34,5 +34,21 @@ namespace SMSParts.IntegrationTests
             return await Task.FromResult(response.Content);
         }
 
+        public async Task<ApiResponse<SmsPartsInformationDto>> GetPartsErrorWithStatusCodeAssertion(
+            string text, 
+            HttpStatusCode statusCode)
+        {
+            var input = new InputModelDto
+            {
+                Text = text
+            };
+            var response = await ApiClient.GetParts(input);
+
+            response.StatusCode.Should().Be(statusCode);
+
+            return await Task.FromResult(response);
+        }
+
+
     }
 }
