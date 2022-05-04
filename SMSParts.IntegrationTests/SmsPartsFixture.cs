@@ -4,19 +4,21 @@ using FluentAssertions;
 using Refit;
 using SMSParts.IntegrationTests.ApiClients;
 using SMSParts.IntegrationTests.Models;
+using SMSParts.IntegrationTests.TestOptionSelection;
 
 namespace SMSParts.IntegrationTests
 {
     public class SmsPartsFixture
     {
-        private string BaseAddress = "https://localhost:55002";
-
         public ISmsPartsApiClient ApiClient;
+
+        public TestOptions TestOptions;
 
         public SmsPartsFixture()
         {
+            TestOptions = TestOptionsBuilder.Options;
             ApiClient = RestService
-                .For<ISmsPartsApiClient>(BaseAddress);
+                .For<ISmsPartsApiClient>(TestOptions.ServiceUrl);
         }
 
         public async Task<SmsPartsInformationDto> GetPartsWithAssertion(string text)
