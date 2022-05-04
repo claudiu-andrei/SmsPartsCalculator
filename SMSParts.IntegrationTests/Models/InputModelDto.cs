@@ -1,4 +1,4 @@
-﻿namespace SMSParts.Domain.Models
+﻿namespace SMSParts.IntegrationTests.Models
 {
     public class InputModelDto
     {

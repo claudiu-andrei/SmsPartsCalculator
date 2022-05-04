@@ -10,6 +10,6 @@ namespace SMSParts.IntegrationTests.ApiClients
         Task<ApiResponse<SmsPartsInformationDto>> Get([Query]string input);
 
         [Post("/SmsParts")]
-        Task<ApiResponse<SmsPartsInformationDto>> GetParts([Body] string input);
+        Task<ApiResponse<SmsPartsInformationDto>> GetParts([Body] InputModelDto input);
     }
 }

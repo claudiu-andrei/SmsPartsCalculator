@@ -23,7 +23,11 @@ namespace SMSParts.IntegrationTests
 
         public async Task<SmsPartsInformationDto> GetPartsWithAssertion(string text)
         {
-            var response = await ApiClient.Get(text);
+            var input = new InputModelDto
+            {
+                Text = text
+            };
+            var response = await ApiClient.GetParts(input);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 

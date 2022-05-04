@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using SMSParts.Business.Interfaces;
+using SMSParts.Domain.Models;
 
 namespace SMSParts.Web.Controllers
 {
@@ -27,16 +28,21 @@ namespace SMSParts.Web.Controllers
             return StatusCode((int)HttpStatusCode.InternalServerError, response.Problem);
         }
 
-        //[HttpPost]
-        //public IActionResult GetParts([FromBody] string input)
-        //{
-        //    var response = SmsPartsService.GetSmsPartsInformation(input);
-        //    if (response.IsValid)
-        //    {
-        //        return Ok(response.Data);
-        //    }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult GetParts([FromBody] InputModelDto input)
+        {
+            var response = SmsPartsService.GetSmsPartsInformation(input.Text);
+            if (response.IsValid)
+            {
+                return Ok(response.Data);
+            }
 
-        //    return StatusCode((int)HttpStatusCode.InternalServerError, response.Problem);
-        //}
+            return StatusCode((int)HttpStatusCode.InternalServerError, response.Problem);
+        }
     }
 }
