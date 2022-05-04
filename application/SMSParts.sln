@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Web", "SMSParts.Web.csproj", "{81799FBA-24E6-4B43-98A9-D3CF19417707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Web", "SMSParts.Web\SMSParts.Web.csproj", "{81799FBA-24E6-4B43-98A9-D3CF19417707}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Business", "..\SMSParts.Business\SMSParts.Business.csproj", "{1FC8577D-ED6B-4B46-A0C2-D826057DAFCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Business", "SMSParts.Business\SMSParts.Business.csproj", "{1FC8577D-ED6B-4B46-A0C2-D826057DAFCA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Domain", "..\SMSParts.Domain\SMSParts.Domain.csproj", "{0D8E7CA1-1576-4982-B6F4-665832A470CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Domain", "SMSParts.Domain\SMSParts.Domain.csproj", "{0D8E7CA1-1576-4982-B6F4-665832A470CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{6198574C-38FF-4340-BCC1-6C5DC755EEC6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{414AACC2-704A-4B53-B030-02533D76C0F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Web.Test", "..\SMSParts.Web.Test\SMSParts.Web.Test.csproj", "{F645F4B5-C915-4728-A65F-C079ED5B8C59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMSParts.Web.Test", "SMSParts.Web.Test\SMSParts.Web.Test.csproj", "{F645F4B5-C915-4728-A65F-C079ED5B8C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSParts.Domain.Test", "..\SMSParts.Domain.Test\SMSParts.Domain.Test.csproj", "{C90B2AFB-E552-45C3-AEA1-079C3E40D86D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSParts.Domain.Test", "SMSParts.Domain.Test\SMSParts.Domain.Test.csproj", "{C90B2AFB-E552-45C3-AEA1-079C3E40D86D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSParts.Business.Test", "..\SMSParts.Business.Test\SMSParts.Business.Test.csproj", "{74577173-A2E9-44EA-A813-15392BCD5CAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSParts.Business.Test", "SMSParts.Business.Test\SMSParts.Business.Test.csproj", "{74577173-A2E9-44EA-A813-15392BCD5CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
